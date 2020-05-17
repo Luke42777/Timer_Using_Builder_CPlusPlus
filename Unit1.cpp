@@ -8,7 +8,7 @@
 #pragma package(smart_init)
 #pragma resource "*.dfm"
 TForm1 *Form1;
-int s = 6 ;// number of second we want to start counting from
+int s = 3666 ;// number of second we want to start counting from
 //---------------------------------------------------------------------------
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
@@ -32,12 +32,17 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
      s_min =  IntToStr(min);
      s_sec = IntToStr(sec);
 
+     if(hour < 10){s_hour = "0" + s_hour;}   //  2 digits display on screen
+     if(min < 10){ s_min = "0" + s_min;}
+     if(sec < 10){ s_sec = "0" + s_sec;}
+
      Label1->Caption = s_hour+":"+s_min+":"+s_sec;
 
 
      if(s <= 0)
      {
-        Label1->Caption = "Time finished";
+        Label1->Caption = "Time is over!";
+        Timer1->Enabled = false;
      }
 }
 //---------------------------------------------------------------------------
