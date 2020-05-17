@@ -6,6 +6,7 @@
 #include "Unit1.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
+#pragma link "trayicon"
 #pragma resource "*.dfm"
 TForm1 *Form1;
 int s = 3666 ;// number of second we want to start counting from
@@ -46,3 +47,10 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
      }
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::TrayIcon1Click(TObject *Sender)
+{
+        Show();
+        Application->BringToFront();        
+}
+//---------------------------------------------------------------------------
+

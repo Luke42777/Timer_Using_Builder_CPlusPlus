@@ -32,4 +32,13 @@ object Form1: TForm1
     Left = 120
     Top = 32
   end
+  object TrayIcon1: TTrayIcon
+    Visible = True
+    Hide = True
+    RestoreOn = imDoubleClick
+    PopupMenuOn = imNone
+    OnClick = TrayIcon1Click
+    Left = 232
+    Top = 48
+  end
 end
